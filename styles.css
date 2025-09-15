@@ -1,0 +1,98 @@
+/* styles.css - Premium Portfolio (Glassmorphism + Gradients)
+   Single-page, responsive layout. Customize variables in :root. */
+:root{
+  --bg-1:#071029;
+  --bg-2:#0b2540;
+  --card:rgba(255,255,255,0.04);
+  --card-strong:rgba(255,255,255,0.06);
+  --muted:#9fb0c8;
+  --text:#eaf2ff;
+  --accent:#22d3ee;
+  --accent-2:#7c3aed;
+  --glass-border:rgba(255,255,255,0.08);
+  --shadow:0 10px 40px rgba(2,8,23,0.6);
+  --radius-lg:18px;
+  --max-width:1100px;
+  --space-sm:12px;
+  --space-md:20px;
+  --space-lg:36px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;font-family:Inter,system-ui,Arial;color:var(--text);background:linear-gradient(180deg,var(--bg-1) 10%,var(--bg-2) 100%);padding:48px 20px;line-height:1.6}
+
+.bg-blob{position:fixed;pointer-events:none;filter:blur(80px) saturate(110%);opacity:0.35;z-index:0}
+.blob-1{width:520px;height:520px;right:-120px;top:-100px;background:radial-gradient(circle at 30% 30%,var(--accent),transparent 35%)}
+.blob-2{width:680px;height:680px;left:-200px;bottom:-180px;background:radial-gradient(circle at 70% 70%,var(--accent-2),transparent 35%)}
+
+.wrap{position:relative;z-index:1;max-width:var(--max-width);margin:0 auto}
+
+/* Header */
+.site-head{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:var(--space-lg)}
+.brand{display:flex;gap:12px;align-items:center}
+.logo-mark{width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:inline-grid;place-items:center;font-weight:700;color:#061229}
+.brand-name{font-family:Poppins,system-ui,Arial;font-weight:700}
+
+.site-nav{display:flex;gap:10px}
+.site-nav a{color:var(--muted);text-decoration:none;padding:8px 12px;border-radius:10px;font-weight:600;font-size:0.95rem;transition:all .18s}
+.site-nav a:hover{background:var(--card);color:var(--text);transform:translateY(-2px)}
+a:focus{outline:3px solid rgba(34,211,238,0.18);outline-offset:3px}
+
+/* Hero card */
+.hero-card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02));border:1px solid var(--glass-border);border-radius:calc(var(--radius-lg) + 6px);padding:var(--space-lg);box-shadow:var(--shadow);display:grid;grid-template-columns:320px 1fr;gap:var(--space-lg);align-items:center;backdrop-filter:blur(10px) saturate(120%)}
+@media(max-width:920px){.hero-card{grid-template-columns:1fr;text-align:center;padding:28px}}
+
+.profile{display:flex;flex-direction:column;align-items:center;gap:14px}
+.avatar{width:180px;height:180px;border-radius:50%;overflow:hidden;border:4px solid rgba(255,255,255,0.06);box-shadow:0 10px 30px rgba(2,8,23,0.6);background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+.avatar img{width:100%;height:100%;object-fit:cover}
+
+.name{font-family:Poppins,system-ui,Arial;font-size:clamp(1.6rem,3.4vw,2.6rem);margin:0 0 6px 0}
+.tagline{margin:0 0 10px 0;color:var(--muted);font-weight:500}
+.meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:12px;color:var(--muted);font-weight:600}
+.role{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(34,211,238,0.06), rgba(124,58,237,0.04));border:1px solid rgba(255,255,255,0.02);color:var(--text);font-weight:600}
+
+/* Sections layout */
+.sections{margin-top:var(--space-lg);display:grid;grid-template-columns:1fr 360px;gap:var(--space-lg)}
+@media(max-width:980px){.sections{grid-template-columns:1fr}}
+.col-main{display:flex;flex-direction:column;gap:var(--space-lg)}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border-radius:14px;padding:18px;border:1px solid var(--glass-border);backdrop-filter:blur(8px);box-shadow:0 6px 26px rgba(2,8,23,0.45)}
+.card h2{margin:0 0 12px 0;font-family:Poppins,system-ui,Arial;font-size:1.15rem}
+.muted{color:var(--muted);font-weight:600}
+
+/* Education, Achievements */
+.edu-list{display:grid;gap:10px}
+.edu-item{display:flex;flex-direction:column;gap:6px}
+.year{color:var(--accent);font-weight:700}
+.ach-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.ach{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:12px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
+.ach h3{margin:0 0 6px 0;font-size:1rem}
+.ach p{margin:0;color:var(--muted);font-size:0.95rem}
+
+/* Hobbies */
+.hobby-grid{display:flex;flex-wrap:wrap;gap:12px}
+.hobby{display:flex;align-items:center;gap:12px;padding:10px 12px;background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-width:160px;transition:transform .18s ease,box-shadow .18s ease}
+.hobby:hover{transform:translateY(-6px);box-shadow:0 10px 30px rgba(2,8,23,0.45)}
+.icon{width:44px;height:44px;border-radius:10px;background:linear-gradient(135deg,var(--accent),var(--accent-2));display:grid;place-items:center;font-size:20px;color:#061229}
+.hobby .label{font-weight:700;color:var(--text)}
+
+/* Badges */
+.badges{display:flex;flex-wrap:wrap;gap:10px}
+.badge{padding:8px 14px;border-radius:999px;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.03);font-weight:700;color:var(--text);transition:all .16s ease}
+.badge:focus,.badge:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(2,8,23,0.45);border-color:var(--accent)}
+
+/* Contact / aside */
+.col-side{display:flex;flex-direction:column;gap:var(--space-lg)}
+.contact-row{display:flex;flex-direction:column;gap:8px}
+.contact-item{display:flex;align-items:center;gap:12px;padding:12px;border-radius:10px;background:linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.02)}
+.contact-item a{color:var(--text);text-decoration:none;font-weight:700}
+.contact-meta{color:var(--muted);font-size:0.95rem}
+
+.site-foot{text-align:center;color:var(--muted);margin-top:var(--space-lg);font-size:0.95rem}
+
+@media(max-width:768px){
+  .site-nav{display:none}
+  .avatar{width:140px;height:140px}
+  .hero-card{padding:20px}
+}
